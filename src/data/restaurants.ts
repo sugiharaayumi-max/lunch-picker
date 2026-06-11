@@ -18,8 +18,15 @@ export interface Restaurant {
   priceRange: string;
   hours: string;
   color: string;
+  imageUrl?: string;
   menu: MenuCategory[];
 }
+
+export const calcAvgPrice = (restaurant: Restaurant): number => {
+  const items = restaurant.menu.flatMap((c) => c.items);
+  if (items.length === 0) return 0;
+  return Math.round(items.reduce((s, i) => s + i.price, 0) / items.length);
+};
 
 export const restaurants: Restaurant[] = [
   {
@@ -31,6 +38,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:30-14:00 / 17:00-19:30（週日休）",
     color: "#F4A261",
+    imageUrl: "https://candylife.tw/wp-content/uploads/20250527103014_0_6d922d.jpg",
     menu: [
       {
         category: "麵類",
@@ -67,6 +75,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:00-14:30 / 17:00-21:30",
     color: "#E9C46A",
+    imageUrl: "https://cdn.hippolife.tw/wp-content/uploads/2024/05/29164255/%E9%A4%90%E9%BB%9E%E9%96%8B%E7%AE%B1-2.webp",
     menu: [
       {
         category: "飯類",
@@ -134,6 +143,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:30-14:30 / 17:30-20:30（週三休）",
     color: "#B8E0B9",
+    imageUrl: "https://candylife.tw/wp-content/uploads/20230320084607_81.jpg",
     menu: [
       {
         category: "飯麵",
@@ -253,6 +263,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$$",
     hours: "08:30 - 22:00",
     color: "#F77F00",
+    imageUrl: "https://img.chiaoda.com/20210325001119_22.jpg",
     menu: [
       {
         category: "早午餐",
@@ -310,6 +321,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "10:00-20:00",
     color: "#4CC9F0",
+    imageUrl: "https://img.vickeywei.com//2020/09/1600923233-847a536ee77a3b638954f0afcac46997.jpg",
     menu: [
       {
         category: "氣炸套餐",
@@ -543,6 +555,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$$",
     hours: "11:30-14:30 / 17:00-20:00",
     color: "#F7C59F",
+    imageUrl: "https://nash.tw/wp-content/uploads/20201019234849_12-scaled.jpg",
     menu: [
       {
         category: "咖哩飯",
@@ -578,6 +591,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$$",
     hours: "10:30 - 21:30",
     color: "#A8D8EA",
+    imageUrl: "https://media.lyes.tw/photo/sj/sj_hzybptlocuy5p/o.jpg",
     menu: [
       {
         category: "早午餐",
@@ -619,6 +633,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:00-13:30 / 17:00-20:00（週二休）",
     color: "#DDA0DD",
+    imageUrl: "https://i0.wp.com/abrabbit.com/wp-content/uploads/flickr/36625413596_d116f191d5_o.jpg?resize=1024%2C684&quality=100&ssl=1",
     menu: [
       {
         category: "炸物咖哩",

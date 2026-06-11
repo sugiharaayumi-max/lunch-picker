@@ -1,6 +1,6 @@
 "use client";
 
-import { Restaurant } from "@/data/restaurants";
+import { Restaurant, calcAvgPrice } from "@/data/restaurants";
 
 interface MenuModalProps {
   restaurant: Restaurant | null;
@@ -10,17 +10,33 @@ interface MenuModalProps {
 export default function MenuModal({ restaurant, onClose }: MenuModalProps) {
   if (!restaurant) return null;
 
+  const avg = calcAvgPrice(restaurant);
+
   return (
     <div
       className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl max-w-md w-full max-h-[80vh] overflow-y-auto shadow-2xl"
+        className="bg-white rounded-2xl max-w-md w-full max-h-[85vh] overflow-y-auto shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* 圖片 */}
+        {restaurant.imageUrl && (
+          <div className="relative w-full h-44 rounded-t-2xl overflow-hidden bg-gray-100">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+              src={restaurant.imageUrl}
+              alt={restaurant.name}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+
+        {/* header */}
         <div
-          className="p-5 rounded-t-2xl text-white"
+          className={`p-5 text-white ${!restaurant.imageUrl ? "rounded-t-2xl" : ""}`}
           style={{ backgroundColor: restaurant.color }}
         >
           <div className="flex justify-between items-start">
@@ -36,9 +52,14 @@ export default function MenuModal({ restaurant, onClose }: MenuModalProps) {
               ×
             </button>
           </div>
-          <div className="flex gap-2 mt-3">
+          <div className="flex gap-2 mt-3 flex-wrap">
             <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{restaurant.category}</span>
             <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{restaurant.priceRange}</span>
+            {avg > 0 && (
+              <span className="bg-white/30 px-2 py-0.5 rounded-full text-xs font-semibold">
+                均消 ${avg}
+              </span>
+            )}
           </div>
         </div>
 
