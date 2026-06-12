@@ -19,8 +19,26 @@ export interface Restaurant {
   hours: string;
   color: string;
   imageUrl?: string;
+  closedDays?: number[]; // 0=日,1=一,2=二,3=三,4=四,5=五,6=六
   menu: MenuCategory[];
 }
+
+export const isOpenToday = (restaurant: Restaurant): boolean => {
+  const today = new Date().getDay();
+  return !(restaurant.closedDays ?? []).includes(today);
+};
+
+export const getTodayRecommendations = (all: Restaurant[], count = 5): Restaurant[] => {
+  const open = all.filter(isOpenToday);
+  // 用今天日期當 seed，讓同一天結果一致
+  const seed = parseInt(new Date().toISOString().split("T")[0].replace(/-/g, ""));
+  const shuffled = [...open].sort((a, b) => {
+    const ha = Math.sin(seed + a.id.charCodeAt(0)) * 10000;
+    const hb = Math.sin(seed + b.id.charCodeAt(0)) * 10000;
+    return (ha - Math.floor(ha)) - (hb - Math.floor(hb));
+  });
+  return shuffled.slice(0, count);
+};
 
 export const calcAvgPrice = (restaurant: Restaurant): number => {
   const items = restaurant.menu.flatMap((c) => c.items);
@@ -32,12 +50,13 @@ export const restaurants: Restaurant[] = [
   {
     id: "jiangwonton",
     name: "江家餛飩",
-    address: "華美街204號",
-    distance: "步行5分鐘",
+    address: "健行路1004號",
+    distance: "步行8分鐘",
     category: "台式麵食",
     priceRange: "$",
     hours: "11:30-14:00 / 17:00-19:30（週日休）",
     color: "#F4A261",
+    closedDays: [0],
     imageUrl: "https://candylife.tw/wp-content/uploads/20250527103014_0_6d922d.jpg",
     menu: [
       {
@@ -143,6 +162,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:30-14:30 / 17:30-20:30（週三休）",
     color: "#B8E0B9",
+    closedDays: [3],
     imageUrl: "https://candylife.tw/wp-content/uploads/20230320084607_81.jpg",
     menu: [
       {
@@ -633,6 +653,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:00-13:30 / 17:00-20:00（週二休）",
     color: "#DDA0DD",
+    closedDays: [2],
     imageUrl: "https://i0.wp.com/abrabbit.com/wp-content/uploads/flickr/36625413596_d116f191d5_o.jpg?resize=1024%2C684&quality=100&ssl=1",
     menu: [
       {
@@ -659,6 +680,240 @@ export const restaurants: Restaurant[] = [
         items: [
           { name: "日式超嫩滑蛋", price: 20 },
           { name: "鮮蔬咖哩", price: 190 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "jianchen",
+    name: "見橙拉仔麵",
+    address: "博館東街16號",
+    distance: "步行12分鐘",
+    category: "台式麵食",
+    priceRange: "$",
+    hours: "11:00-19:00",
+    color: "#E9C46A",
+    menu: [
+      {
+        category: "麵飯",
+        items: [
+          { name: "招牌拉仔麵", price: 40 },
+          { name: "虱目魚麵", price: 80 },
+          { name: "豬油拌飯", price: 50 },
+          { name: "月見豬油拌飯便當", price: 110 },
+          { name: "瓜仔肉飯", price: 55 },
+          { name: "塔香豬肉飯", price: 60 },
+        ],
+      },
+      {
+        category: "小菜",
+        items: [
+          { name: "菜脯蛋", price: 30 },
+          { name: "滷味", price: 35 },
+          { name: "蝦捲", price: 40 },
+          { name: "燙青菜", price: 30 },
+        ],
+      },
+      {
+        category: "湯品",
+        items: [
+          { name: "蘿蔔湯", price: 30 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "lusine",
+    name: "L'USiNE Café",
+    address: "忠誠街69號",
+    distance: "步行8分鐘",
+    category: "早午餐",
+    priceRange: "$$",
+    hours: "07:30-17:00（週一休）",
+    color: "#E8D5B7",
+    closedDays: [1],
+    menu: [
+      {
+        category: "早午餐",
+        items: [
+          { name: "焦糖牛肉三明治", price: 280 },
+          { name: "南蠻雞腿排早午餐", price: 320 },
+          { name: "法式吐司", price: 220 },
+          { name: "歐式早午餐盤", price: 290 },
+        ],
+      },
+      {
+        category: "飲品",
+        items: [
+          { name: "拿鐵", price: 130 },
+          { name: "美式咖啡", price: 110 },
+          { name: "手沖", price: 150 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "day2night",
+    name: "Day2night噴水熱狗堡",
+    address: "公益路245號",
+    distance: "步行8分鐘",
+    category: "熱狗／美式",
+    priceRange: "$",
+    hours: "10:00-03:00",
+    color: "#E63946",
+    menu: [
+      {
+        category: "熱狗堡",
+        items: [
+          { name: "招牌美式熱狗", price: 120 },
+          { name: "起司墨西哥辣椒熱狗堡", price: 150 },
+          { name: "起司肉醬堡", price: 150 },
+        ],
+      },
+      {
+        category: "早午餐",
+        items: [
+          { name: "脆皮雞腿總匯", price: 180 },
+          { name: "奶油煎厚吐司", price: 120 },
+          { name: "炒泡麵", price: 100 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "asap",
+    name: "as soon as pasta",
+    address: "中美街363巷14號",
+    distance: "步行8分鐘",
+    category: "義大利麵",
+    priceRange: "$$$",
+    hours: "12:00-14:00 / 17:30-20:30（週三休）",
+    color: "#457B9D",
+    closedDays: [3],
+    menu: [
+      {
+        category: "義大利麵",
+        items: [
+          { name: "每日特製手工義大利麵", price: 380, description: "菜單每日不同" },
+          { name: "創意風味義大利麵", price: 420 },
+        ],
+      },
+      {
+        category: "燉飯",
+        items: [
+          { name: "每日特製燉飯", price: 380 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "zazhi",
+    name: "雜誌食事處",
+    address: "博館二街57號",
+    distance: "步行12分鐘",
+    category: "丼物",
+    priceRange: "$$",
+    hours: "11:00-20:00（週五休）",
+    color: "#2D6A4F",
+    closedDays: [5],
+    menu: [
+      {
+        category: "丼飯",
+        items: [
+          { name: "鮭魚丼", price: 270 },
+          { name: "鮪魚丼", price: 270 },
+          { name: "綜合海鮮丼", price: 320 },
+          { name: "炸蝦丼", price: 280 },
+        ],
+      },
+      {
+        category: "吃到飽附餐",
+        items: [
+          { name: "炸物無限", price: 0, description: "內用低消270元含炸物小菜飲料" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "mofan",
+    name: "魔飯食堂",
+    address: "模範街76號",
+    distance: "步行10分鐘",
+    category: "台式便當",
+    priceRange: "$",
+    hours: "11:00-20:00",
+    color: "#8D6E63",
+    menu: [
+      {
+        category: "便當飯類",
+        items: [
+          { name: "排骨飯", price: 90 },
+          { name: "滷肉飯", price: 50 },
+          { name: "陽春麵", price: 50 },
+          { name: "什錦炒飯", price: 80 },
+        ],
+      },
+      {
+        category: "小菜湯品",
+        items: [
+          { name: "水餃（5顆）", price: 35 },
+          { name: "燙青菜", price: 30 },
+          { name: "例湯", price: 20 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "addiction",
+    name: "Addiction嗜吃",
+    address: "忠明南路92號",
+    distance: "步行10分鐘",
+    category: "義式料理",
+    priceRange: "$$$",
+    hours: "11:30-14:30 / 17:30-21:00",
+    color: "#6D6875",
+    menu: [
+      {
+        category: "義大利麵",
+        items: [
+          { name: "海鮮義大利麵", price: 380 },
+          { name: "白醬培根麵", price: 340 },
+          { name: "青醬松子麵", price: 320 },
+        ],
+      },
+      {
+        category: "主食",
+        items: [
+          { name: "唐揚炸雞", price: 320 },
+          { name: "燉飯", price: 360 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "magickitchen",
+    name: "魔法健康廚房",
+    address: "中美街347號",
+    distance: "步行8分鐘",
+    category: "健康餐盒",
+    priceRange: "$",
+    hours: "10:00-19:30",
+    color: "#52B788",
+    menu: [
+      {
+        category: "健康餐盒",
+        items: [
+          { name: "舒肥雞胸餐盒", price: 130 },
+          { name: "減醣餐盒", price: 140 },
+          { name: "水煮餐盒", price: 120 },
+          { name: "溫沙拉餐盒", price: 150 },
+          { name: "水果餐盒", price: 110 },
+        ],
+      },
+      {
+        category: "飲品",
+        items: [
+          { name: "果昔", price: 80 },
         ],
       },
     ],
