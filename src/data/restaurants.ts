@@ -49,7 +49,7 @@ export const calcAvgPrice = (restaurant: Restaurant): number => {
 export const restaurants: Restaurant[] = [
   {
     id: "jiangwonton",
-    name: "江家餛飩",
+    name: "富子江家餛飩",
     address: "健行路1004號",
     distance: "步行8分鐘",
     category: "台式麵食",
