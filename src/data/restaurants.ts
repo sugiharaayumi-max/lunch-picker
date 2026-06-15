@@ -1052,5 +1052,45 @@ export const restaurants: Restaurant[] = [
       },
     ],
   },
+  {
+    id: "mianmian",
+    name: "麵麵俱到",
+    address: "美村路一段159號",
+    walkingMinutes: 5,
+    category: "台式麵食",
+    priceRange: "$",
+    hours: "11:30-14:00 / 17:00-21:00（週六休）",
+    color: "#8B5E3C",
+    closedDays: [6],
+    imageUrl: "https://pic.pimg.tw/lily20038160911/1469258836-4095654228_n.jpg",
+    menu: [
+      {
+        category: "湯麵",
+        items: [
+          { name: "蔬菜麵", price: 120, description: "竹筍、豆腐、白蘿蔔、木耳、蛋等多種蔬菜" },
+          { name: "上湯海鮮麵", price: 100, description: "蝦、花枝、蛤蜊、鵪鶉蛋" },
+          { name: "鮮肉餛飩麵", price: 80 },
+          { name: "什錦鍋燒意麵", price: 100 },
+          { name: "古早味麵", price: 50 },
+        ],
+      },
+      {
+        category: "乾麵",
+        items: [
+          { name: "雙醬麵", price: 70 },
+          { name: "牛肉乾拌麵", price: 90 },
+          { name: "麻醬麵", price: 60 },
+        ],
+      },
+      {
+        category: "小菜",
+        items: [
+          { name: "滷豆腐", price: 30 },
+          { name: "滷蛋", price: 15 },
+          { name: "燙青菜", price: 35 },
+        ],
+      },
+    ],
+  },
 ];
 
