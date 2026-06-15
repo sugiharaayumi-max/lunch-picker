@@ -918,5 +918,124 @@ export const restaurants: Restaurant[] = [
       },
     ],
   },
+  {
+    id: "xiangshangbeef",
+    name: "向上牛肉麵",
+    address: "中美街203號",
+    walkingMinutes: 12,
+    category: "牛肉麵/熱炒",
+    priceRange: "$",
+    hours: "10:30-21:30（週二休）",
+    color: "#A0522D",
+    closedDays: [2],
+    menu: [
+      {
+        category: "麵食",
+        items: [
+          { name: "牛肉麵", price: 120 },
+          { name: "炒烏龍麵", price: 65 },
+          { name: "牛肉燴飯", price: 80 },
+          { name: "蛋花湯", price: 25 },
+        ],
+      },
+      {
+        category: "小菜",
+        items: [
+          { name: "煙燻豬耳朵", price: 40 },
+          { name: "蒸餃（6顆）", price: 50 },
+          { name: "滷蛋", price: 15 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "nanxianghainan",
+    name: "南香海南雞飯",
+    address: "中美街397號",
+    walkingMinutes: 18,
+    category: "南洋料理",
+    priceRange: "$",
+    hours: "11:00-14:00 / 17:00-20:30",
+    color: "#F4C430",
+    imageUrl: "https://misshuan.tw/wp-content/uploads/20180914180305_78.jpg",
+    menu: [
+      {
+        category: "主食",
+        items: [
+          { name: "海南雞飯", price: 80, description: "整隻大雞腿，附小黃瓜豆芽菜" },
+          { name: "炒粿條", price: 100, description: "馬來風味越吃越刷嘴" },
+          { name: "荷包蛋", price: 15 },
+        ],
+      },
+      {
+        category: "湯品",
+        items: [
+          { name: "馬來風味肉骨茶（小）", price: 100 },
+          { name: "蝦醬空心菜", price: 100 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "guangwei",
+    name: "廣味燒臘快餐",
+    address: "中美街328號",
+    walkingMinutes: 15,
+    category: "燒臘便當",
+    priceRange: "$",
+    hours: "10:45-14:30 / 16:40-20:00（週一休）",
+    color: "#C0392B",
+    closedDays: [1],
+    imageUrl: "https://img.sant.tw/1599914965-aa353e19c572f7566caaf52323ea23c.jpg",
+    menu: [
+      {
+        category: "便當（附兩青菜＋酸菜）",
+        items: [
+          { name: "三寶飯（烤鴨＋油雞＋臘腸）", price: 100, description: "35年老店人氣第一" },
+          { name: "叉燒飯", price: 90 },
+          { name: "烤鴨飯", price: 90 },
+          { name: "油雞飯", price: 90 },
+          { name: "烤鴨腿飯", price: 100 },
+          { name: "油雞腿飯", price: 100 },
+        ],
+      },
+      {
+        category: "加點",
+        items: [
+          { name: "滷蛋", price: 10 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "ramenzero",
+    name: "麵屋零 ZERO",
+    address: "向上路一段245巷9號",
+    walkingMinutes: 15,
+    category: "日式拉麵",
+    priceRange: "$$",
+    hours: "11:30-14:00 / 17:30-20:30（週三休）",
+    color: "#2C3E50",
+    closedDays: [3],
+    menu: [
+      {
+        category: "招牌拉麵",
+        items: [
+          { name: "野菜二郎蒜香豚骨拉麵", price: 250, description: "人氣第一，大量蒜酥豆芽高麗菜" },
+          { name: "香菜麻辣拉麵", price: 250, description: "自製麻辣醬，辛香爽口" },
+          { name: "濃厚豚骨拉麵", price: 230, description: "東池袋大勝軒師承" },
+          { name: "元祖日式沾麵", price: 200 },
+          { name: "醬油拉麵", price: 140 },
+        ],
+      },
+      {
+        category: "小食",
+        items: [
+          { name: "炸雞塊", price: 100 },
+          { name: "綜合可樂餅", price: 80 },
+        ],
+      },
+    ],
+  },
 ];
 
