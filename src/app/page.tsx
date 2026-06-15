@@ -1,15 +1,14 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { restaurants, calcAvgPrice, isOpenToday } from "@/data/restaurants";
 import type { Restaurant } from "@/data/restaurants";
-import Dashboard from "@/components/Dashboard";
 import RestaurantCard from "@/components/RestaurantCard";
 import DecisionPage from "@/components/DecisionPage";
 import MenuModal from "@/components/MenuModal";
 import { useCandidates } from "@/hooks/useCandidates";
 
-type Tab = "home" | "list" | "decision";
+type Tab = "list" | "decision";
 
 const CATEGORIES = Array.from(new Set(restaurants.map((r) => r.category)));
 const MAX_WALK = Math.max(...restaurants.map((r) => r.walkingMinutes));
@@ -17,9 +16,18 @@ const ALL_PRICES = restaurants.map(calcAvgPrice).filter((p) => p > 0);
 const MIN_PRICE = Math.min(...ALL_PRICES);
 const MAX_PRICE = Math.max(...ALL_PRICES);
 
+const DAY_NAMES = ["日", "一", "二", "三", "四", "五", "六"];
+
 export default function Home() {
-  const [tab, setTab] = useState<Tab>("home");
+  const [tab, setTab] = useState<Tab>("list");
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
+  const [now, setNow] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setNow(new Date());
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
   const { candidates, toggle, clear } = useCandidates();
 
   // 過濾器狀態
@@ -48,10 +56,13 @@ export default function Home() {
   }, [filterWalk, filterMinPrice, filterMaxPrice, filterCategory, filterOpenOnly]);
 
   const tabs: { key: Tab; label: string; badge?: number }[] = [
-    { key: "home", label: "🏠 首頁" },
     { key: "list", label: "📋 餐廳" },
     { key: "decision", label: "🗳 決策", badge: candidates.length || undefined },
   ];
+
+  const timeStr = now
+    ? `${now.getMonth() + 1}/${now.getDate()}（週${DAY_NAMES[now.getDay()]}）${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`
+    : "";
 
   return (
     <main className="min-h-screen bg-orange-50">
@@ -59,7 +70,7 @@ export default function Home() {
       <div className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
           <h1 className="text-xl font-black text-orange-600">🍱 中午吃什麼</h1>
-          <p className="text-xs text-gray-400">{restaurants.length} 間餐廳 · 台中美村路</p>
+          <p className="text-xs text-gray-400 tabular-nums">{timeStr}</p>
         </div>
         <div className="max-w-5xl mx-auto px-4 flex gap-1 pb-2">
           {tabs.map(({ key, label, badge }) => (
@@ -82,14 +93,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
-      {/* 首頁 */}
-      {tab === "home" && (
-        <Dashboard onRestaurantClick={(id) => {
-          const r = restaurants.find((x) => x.id === id);
-          if (r) setSelectedRestaurant(r);
-        }} />
-      )}
 
       {/* 餐廳列表 */}
       {tab === "list" && (
