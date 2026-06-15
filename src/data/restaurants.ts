@@ -374,6 +374,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "09:00 - 22:00",
     color: "#006A4E",
+    imageUrl: "https://subway.com.tw/GoWeb2/UploadImages/20190628123049-1580450345cd2786146683-p01.jpg",
     menu: [
       {
         category: "6吋潛艇堡",
@@ -411,6 +412,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "10:00 - 22:00",
     color: "#D62828",
+    imageUrl: "https://burgerkingimage.azureedge.net/product/10006_new.png",
     menu: [
       {
         category: "招牌漢堡",
@@ -448,6 +450,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "07:00 - 22:00",
     color: "#C1121F",
+    imageUrl: "https://www.mos.com.tw/upload/product/20260422_110702_093.jpg",
     menu: [
       {
         category: "漢堡",
@@ -543,13 +546,14 @@ export const restaurants: Restaurant[] = [
   },
   {
     id: "shufang",
-    name: "蔬房",
-    address: "美村路一段附近",
-    walkingMinutes: 8,
-    category: "蔬食 / 素食",
+    name: "TG蔬坊 The Greenery",
+    address: "公益路68號B1（勤美誠品地下）",
+    walkingMinutes: 5,
+    category: "蔬食 / 沙拉",
     priceRange: "$",
-    hours: "11:00-14:00 / 17:00-20:00",
+    hours: "11:00-21:30",
     color: "#80B918",
+    imageUrl: "https://thegreenerytw.com/wp-content/uploads/2023/10/20230719_0006.jpg",
     menu: [
       {
         category: "蔬食簡餐",
