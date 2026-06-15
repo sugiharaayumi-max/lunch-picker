@@ -236,6 +236,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$$",
     hours: "11:00-15:00 / 17:00-21:00",
     color: "#52B788",
+    imageUrl: "https://tb-static.uber.com/prod/image-proc/processed_images/66b09024e7174d2117ba9979214eab03/ec1689ae3a25695f1b8e25c59bec5034.jpeg",
     menu: [
       {
         category: "自由選 Poke Bowl",
