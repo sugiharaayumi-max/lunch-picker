@@ -124,7 +124,7 @@ export default function SpinWheel({ restaurants, onResult }: SpinWheelProps) {
       {result && (
         <div className="text-center animate-bounce">
           <p className="text-2xl font-bold text-orange-600">🎉 {result.name}</p>
-          <p className="text-sm text-gray-500">{result.address} · {result.distance}</p>
+          <p className="text-sm text-gray-500">{result.address} · 步行{result.walkingMinutes}分鐘</p>
         </div>
       )}
     </div>

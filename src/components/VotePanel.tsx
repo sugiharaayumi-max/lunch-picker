@@ -132,7 +132,7 @@ export default function VotePanel({ restaurants }: VotePanelProps) {
                   <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: rest.color }} />
                   <div>
                     <p className="font-semibold text-gray-800">{rest.name}</p>
-                    <p className="text-xs text-gray-400">{rest.category} · {rest.distance}</p>
+                    <p className="text-xs text-gray-400">{rest.category} · 步行{rest.walkingMinutes}分鐘</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">

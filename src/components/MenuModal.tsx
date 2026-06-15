@@ -42,7 +42,7 @@ export default function MenuModal({ restaurant, onClose }: MenuModalProps) {
           <div className="flex justify-between items-start">
             <div>
               <h2 className="text-2xl font-bold">{restaurant.name}</h2>
-              <p className="text-sm opacity-80 mt-1">{restaurant.address} · {restaurant.distance}</p>
+              <p className="text-sm opacity-80 mt-1">{restaurant.address} · 步行{restaurant.walkingMinutes}分鐘</p>
               <p className="text-sm opacity-80">{restaurant.hours}</p>
             </div>
             <button

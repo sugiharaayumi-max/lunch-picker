@@ -73,7 +73,7 @@ export default function Dashboard({ onRestaurantClick }: DashboardProps) {
                 {/* 資訊 */}
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-gray-800 truncate">{r.name}</p>
-                  <p className="text-xs text-gray-400 truncate">{r.category} · {r.distance}</p>
+                  <p className="text-xs text-gray-400 truncate">{r.category} · 步行{r.walkingMinutes}分鐘</p>
                 </div>
 
                 {/* 均消 */}
