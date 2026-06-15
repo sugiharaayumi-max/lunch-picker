@@ -134,6 +134,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:00-14:30 / 17:00-21:00",
     color: "#2A9D8F",
+    imageUrl: "https://pic.pimg.tw/youngmusic/1755876468-3251533475-g_l.jpg",
     menu: [
       {
         category: "主食",
@@ -201,6 +202,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:00-14:30 / 17:00-20:00",
     color: "#E76F51",
+    imageUrl: "https://candylife.tw/wp-content/uploads/20200711183422_94.jpg",
     menu: [
       {
         category: "麵類",
@@ -694,6 +696,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "11:00-19:00",
     color: "#E9C46A",
+    imageUrl: "https://sharonyes.com/wp-content/uploads/2021/07/20210723000307_37.jpg",
     menu: [
       {
         category: "麵飯",
@@ -733,6 +736,7 @@ export const restaurants: Restaurant[] = [
     hours: "07:30-17:00（週一休）",
     color: "#E8D5B7",
     closedDays: [1],
+    imageUrl: "https://img.chiaoda.com/20221024232033_98.jpg",
     menu: [
       {
         category: "早午餐",
@@ -762,6 +766,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$",
     hours: "10:00-03:00",
     color: "#E63946",
+    imageUrl: "https://weshares.com.tw/wp-content/uploads/2025/06/20250602144433_0_261b4b.jpg",
     menu: [
       {
         category: "熱狗堡",
@@ -791,6 +796,7 @@ export const restaurants: Restaurant[] = [
     hours: "12:00-14:00 / 17:30-20:30（週三休）",
     color: "#457B9D",
     closedDays: [3],
+    imageUrl: "https://live.staticflickr.com/65535/53623518632_f3b50ca3d2_c.jpg",
     menu: [
       {
         category: "義大利麵",
@@ -817,6 +823,7 @@ export const restaurants: Restaurant[] = [
     hours: "11:00-20:00（週五休）",
     color: "#2D6A4F",
     closedDays: [5],
+    imageUrl: "https://farm66.static.flickr.com/65535/55065203708_db30174aa2_c.jpg",
     menu: [
       {
         category: "丼飯",
@@ -873,6 +880,7 @@ export const restaurants: Restaurant[] = [
     priceRange: "$$$",
     hours: "11:30-14:30 / 17:30-21:00",
     color: "#6D6875",
+    imageUrl: "https://xaioyue.com/wp-content/uploads/2023/03/20230325140742_92.jpg",
     menu: [
       {
         category: "義大利麵",
@@ -929,6 +937,7 @@ export const restaurants: Restaurant[] = [
     hours: "10:30-21:30（週二休）",
     color: "#A0522D",
     closedDays: [2],
+    imageUrl: "https://misshuan.tw/wp-content/uploads/20180530233646_48.jpg",
     menu: [
       {
         category: "麵食",
@@ -1018,6 +1027,7 @@ export const restaurants: Restaurant[] = [
     hours: "11:30-14:00 / 17:30-20:30（週三休）",
     color: "#2C3E50",
     closedDays: [3],
+    imageUrl: "https://misshuan.tw/wp-content/uploads/20180609165852_19.jpg",
     menu: [
       {
         category: "招牌拉麵",
