@@ -57,7 +57,7 @@ export const restaurants: Restaurant[] = [
     hours: "11:30-14:00 / 17:00-19:30（週日休）",
     color: "#F4A261",
     closedDays: [0],
-    imageUrl: "https://candylife.tw/wp-content/uploads/20250527103014_0_6d922d.jpg",
+    imageUrl: "https://pic.pimg.tw/toyadailylife/1661183458-2263931451-g.jpg",
     menu: [
       {
         category: "麵類",
