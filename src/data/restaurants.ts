@@ -504,13 +504,14 @@ export const restaurants: Restaurant[] = [
   },
   {
     id: "dongshan",
-    name: "東山餃子館",
-    address: "美村路一段附近",
+    name: "山東餃子牛肉麵館",
+    address: "公益路94號",
     walkingMinutes: 10,
     category: "水餃 / 麵食",
     priceRange: "$",
     hours: "11:00-14:00 / 17:00-20:30",
     color: "#FFC8DD",
+    imageUrl: "https://misshuan.tw/wp-content/uploads/20180808231440_67.jpg",
     menu: [
       {
         category: "水餃",
