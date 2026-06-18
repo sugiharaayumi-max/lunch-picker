@@ -486,6 +486,7 @@ export const restaurants: Restaurant[] = [
     name: "青輕盒食",
     address: "美村路一段94號",
     walkingMinutes: 3,
+    imageUrl: "https://tb-static.uber.com/prod/image-proc/processed_images/1c0ccaf2cc95c301151cfdb7df9ea4a1/4218ca1d09174218364162cd0b1a8cc1.jpeg",
     category: "健康盒食",
     priceRange: "$",
     hours: "10:30-14:30 / 17:00-21:00",
