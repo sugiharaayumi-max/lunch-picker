@@ -259,6 +259,7 @@ export const restaurants: Restaurant[] = [
   {
     id: "caipot",
     name: "彩碗",
+    imageUrl: "https://wanderland.tw/wp-content/uploads/2022/08/封面台中彩碗-1024x676.jpg",
     address: "美村路一段附近",
     walkingMinutes: 10,
     category: "健康餐碗",
