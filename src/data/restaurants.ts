@@ -1079,19 +1079,29 @@ export const restaurants: Restaurant[] = [
     imageUrl: "https://tb-static.uber.com/prod/image-proc/processed_images/800599d18b47f2b3c961b7ca5d707710/4218ca1d09174218364162cd0b1a8cc1.jpeg",
     menu: [
       {
-        category: "輕卡餐盒",
+        category: "A餐 減醣輕卡餐盒（溫沙拉底／無澱粉／高蛋白）",
         items: [
-          { name: "舒肥雞胸餐盒", price: 150, description: "低脂高蛋白，附蔬菜與主食" },
-          { name: "水煮餐盒", price: 140, description: "健康無油水煮料理" },
-          { name: "減醣餐盒", price: 150, description: "低碳水化合物配搭" },
-          { name: "溫沙拉", price: 130, description: "新鮮蔬菜溫沙拉" },
+          { name: "A01 香煎豆腐（素食）", price: 145 },
+          { name: "A02 鮮嫩雞胸", price: 145 },
+          { name: "A03 軟Q豬菲力", price: 145 },
+          { name: "A04 去骨土雞腿", price: 155 },
         ],
       },
       {
-        category: "果昔飲品",
+        category: "B餐 輕卡愛呷菜餐盒（半飯／半地瓜或馬鈴薯／菜多）",
         items: [
-          { name: "新鮮果昔", price: 80, description: "當日新鮮水果製作" },
-          { name: "水果餐盒", price: 120, description: "季節水果組合" },
+          { name: "B01 香煎豆腐（素食）404卡", price: 120 },
+          { name: "B02 鮮嫩雞胸 402卡", price: 125 },
+          { name: "B03 軟Q豬菲力 410卡", price: 125 },
+          { name: "B04 去骨土雞腿 439卡", price: 140 },
+        ],
+      },
+      {
+        category: "C餐 輕卡愛呷肉餐盒（半飯／半地瓜或馬鈴薯／肉多）",
+        items: [
+          { name: "C01 鮮嫩雞胸 465卡", price: 140 },
+          { name: "C02 軟Q豬菲力 471卡", price: 140 },
+          { name: "C03 去骨土雞腿 498卡", price: 155 },
         ],
       },
     ],
