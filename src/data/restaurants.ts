@@ -1066,5 +1066,35 @@ export const restaurants: Restaurant[] = [
       },
     ],
   },
+  {
+    id: "magickitchen",
+    name: "魔法健康廚房",
+    address: "中美街347號",
+    walkingMinutes: 15,
+    category: "健康餐盒",
+    priceRange: "$$",
+    hours: "週一 09:00-18:30 / 週二至六 09:00-18:00（週日休）",
+    color: "#4CAF50",
+    closedDays: [0],
+    imageUrl: "https://tb-static.uber.com/prod/image-proc/processed_images/800599d18b47f2b3c961b7ca5d707710/4218ca1d09174218364162cd0b1a8cc1.jpeg",
+    menu: [
+      {
+        category: "輕卡餐盒",
+        items: [
+          { name: "舒肥雞胸餐盒", price: 150, description: "低脂高蛋白，附蔬菜與主食" },
+          { name: "水煮餐盒", price: 140, description: "健康無油水煮料理" },
+          { name: "減醣餐盒", price: 150, description: "低碳水化合物配搭" },
+          { name: "溫沙拉", price: 130, description: "新鮮蔬菜溫沙拉" },
+        ],
+      },
+      {
+        category: "果昔飲品",
+        items: [
+          { name: "新鮮果昔", price: 80, description: "當日新鮮水果製作" },
+          { name: "水果餐盒", price: 120, description: "季節水果組合" },
+        ],
+      },
+    ],
+  },
 ];
 
