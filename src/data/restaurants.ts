@@ -850,35 +850,6 @@ export const restaurants: Restaurant[] = [
     ],
   },
   {
-    id: "mofan",
-    name: "魔飯食堂",
-    address: "模範街76號",
-    walkingMinutes: 10,
-    category: "台式便當",
-    priceRange: "$",
-    hours: "11:00-20:00",
-    color: "#8D6E63",
-    menu: [
-      {
-        category: "便當飯類",
-        items: [
-          { name: "排骨飯", price: 90 },
-          { name: "滷肉飯", price: 50 },
-          { name: "陽春麵", price: 50 },
-          { name: "什錦炒飯", price: 80 },
-        ],
-      },
-      {
-        category: "小菜湯品",
-        items: [
-          { name: "水餃（5顆）", price: 35 },
-          { name: "燙青菜", price: 30 },
-          { name: "例湯", price: 20 },
-        ],
-      },
-    ],
-  },
-  {
     id: "addiction",
     name: "Addiction嗜吃",
     address: "忠明南路92號",
